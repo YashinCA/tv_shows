@@ -1,0 +1,48 @@
+{% extends "app/base.html" %}
+{% block titulo %}New TV-Show{% endblock %}
+
+{% block contenido %}
+<div class="container mt-5">
+    <h1>New TV-Show</h1>
+    <hr>
+
+    <div class='row'>
+        <div class='col-6'>
+            <form action='{% url 'tv-shows:crear'%}' method='post'>
+                {% csrf_token %}
+                <div class="row g-3 align-items-center">
+                    <div class="col-4">
+                        <label for="title" class="col-form-label">Title</label>
+                    </div>
+                    <div class="col-8">
+                        <input type="text" id="nombre" class="form-control" name='title'>
+                    </div>
+                    <div class="col-4">
+                        <label for="network" class="col-form-label">Network</label>
+                    </div>
+                    <div class="col-8">
+                        <input type="text" id="nombre" class="form-control" name='network'>
+                    </div>
+                    <div class="col-4">
+                        <label for="releasedate" class="col-form-label">Release Date</label>
+                    </div>
+                    <div class="col-8">
+                        <input type="date" id="start" name="releasedate" class="form-control" value="2022-01-01" min="2022-01-01" max="2026-12-31">
+                    </div>
+                    <div class="col-4">
+                        <label for="floatingTextarea">Description</label>
+                    </div>
+                    <div class="col-8">
+                        <textarea name="description" class="form-control" placeholder="Tv-Show Description" id="floatingTextarea"></textarea>
+                    </div>
+                    <div class="col-4">
+                    </div>
+                    <div class="col-8">
+                        <button type="submit" class="btn btn-primary">Add Tv-Show</button>
+                    </div>
+                </div>
+        </div>
+        
+    </div>
+</div>
+{% endblock  %}
